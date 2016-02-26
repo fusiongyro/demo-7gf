@@ -1,3 +1,5 @@
+import subprocess
+
 from pyramid.response import Response
 from pyramid.view import view_config
 
@@ -17,6 +19,10 @@ def my_view(request):
         return Response(conn_err_msg, content_type='text/plain', status_int=500)
     return {'one': one, 'project': 'demo'}
 
+@view_config(route_name='webhook')
+def git_pull_pyramid_restart(request):
+    subprocess.call('sudo /srv/update-demo.sh', shell=True)
+    return Response('Success', content_type='text/plain', status_int=200)
 
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
