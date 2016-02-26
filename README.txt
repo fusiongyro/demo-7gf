@@ -8,7 +8,6 @@ Getting Started
 
 - $VENV/bin/python setup.py develop
 
-- $VENV/bin/initialize_demo_db development.ini
+- $VENV/bin/alembic upgrade head
 
 - $VENV/bin/pserve development.ini
-
