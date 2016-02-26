@@ -17,7 +17,7 @@ def my_view(request):
         one = DBSession.query(MyModel).filter(MyModel.name == 'one').first()
     except DBAPIError:
         return Response(conn_err_msg, content_type='text/plain', status_int=500)
-    return {'one': one, 'project': 'demo'}
+    return {'one': one, 'project': 'py.7gf.org'}
 
 @view_config(route_name='webhook')
 def git_pull_pyramid_restart(request):
